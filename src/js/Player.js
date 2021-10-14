@@ -3,4 +3,8 @@ export class Player {
         this.name = name
         this.game = game
     }
+    function log(){
+        console.log(name)
+        console,log(game)
+    }
 }
