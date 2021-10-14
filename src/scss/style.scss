@@ -1,0 +1,24 @@
+@import "~bootstrap/scss/bootstrap";
+
+$bgColor: #8a2be2;
+%divBg {
+  background-color: $bgColor;
+}
+
+@mixin fonts($size) {
+  font-size: $size;
+}
+
+section {
+  background-color: antiquewhite;
+
+  > div {
+    @extend %divBg;
+    @include fonts('40px');
+    color: $yellow-300;
+  }
+}
+
+.row > div {
+  padding: 10px;
+}

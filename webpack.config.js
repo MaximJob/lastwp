@@ -16,9 +16,15 @@ module.exports = {
     },
     resolve: {
         alias: {
-            '@models': path.resolve(__dirname, 'src/models'),
             '@': path.resolve(__dirname, 'src')
         }
+    },
+    devServer: {
+        static: {
+            directory: path.join(__dirname, 'dist'),
+        },
+        compress: true,
+        port: 9000,
     },
     plugins: [
         new HTMLWebpackPlugin({
@@ -38,11 +44,14 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.css$/,
+                test: /\.s[ac]ss$/,
                 use: [{
                     loader: MiniCssExtractPlugin.loader,
                     options: {}
-                }, 'css-loader']
+                },
+                    "css-loader",
+                    "sass-loader",
+                ]
             },
             {
                 test: /\.(png|jpg|svg|gif)$/,
